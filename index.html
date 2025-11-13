@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skywork-R1V4: Toward Agentic Multimodal Intelligence through Interleaved Thinking with Images and DeepResearch</title>
+    
+    <!-- External CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Change font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+   
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="static/css/main.css">
+    <!-- Custom script -->
+    <script src="static/js/flexible-case-renderer.js"></script>
+    <script src="static/js/main.js"></script>
+    <script src="static/js/video-players.js"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="./static/images/logo.png">
+</head>
+<body>
+    <!-- Author Section -->
+    <section class="common-section">
+        <div class="common-container">
+            <div class="logo-title">
+                <img src="./static/images/logo.png" class="logo-img">
+                <h1 class="publication-title">Skywork-R1V4: Toward Agentic Multimodal Intelligence <br>through Interleaved Thinking with Images and DeepResearch</h1>
+            </div>
+        
+
+            <div class="authors-section">
+                <!-- <div>
+                    <span class="author-block">Yi-Fan Zhang<sup>2,♠</sup>,</span>
+                    <span class="author-block">Xingyu Lu<sup>4</sup>,</span>
+                    <span class="author-block">Shukang Yin<sup>5</sup>,</span>
+                    <span class="author-block">Chaoyou Fu<sup>3,†</sup>,</span>
+                    <br>
+                    <span class="author-block">Wei Chen<sup>1</sup>,</span>
+                    <span class="author-block">Xiao Hu<sup>4</sup>,</span>
+                    <span class="author-block">Bin Wen<sup>1,†</sup>,</span>
+                    <span class="author-block">Kaiyu Jiang<sup>1</sup>,</span>
+                    <span class="author-block">Changyi Liu<sup>1</sup>,</span>
+                    <span class="author-block">Tianke Zhang<sup>1</sup>,</span>
+                    <br>
+                    <span class="author-block">Haonan Fan<sup>1</sup>,</span>
+                    <span class="author-block">Kaibing Chen<sup>1</sup>,</span>
+                    <span class="author-block">Jiankang Chen<sup>1</sup>,</span>
+                    <span class="author-block">Haojie Ding<sup>1</sup>,</span>
+                    <span class="author-block">Kaiyu Tang<sup>1</sup>,</span>
+                    <br>
+                    <span class="author-block">Zhang Zhang<sup>2,†</sup>,</span>
+                    <span class="author-block">Liang Wang<sup>2</sup>,</span>
+                    <span class="author-block">Fan Yang<sup>1</sup>,</span>
+                    <span class="author-block">Tingting Gao<sup>1</sup>,</span>
+                    <span class="author-block">Guorui Zhou<sup>1</sup></span>
+                </div>
+                
+                <div class="author-notes">
+                    <span class="author-block"><sup>♠</sup>Project Leader</span>
+                    <span class="author-block"><sup>†</sup>Corresponding Author</span>
+                </div> -->
+
+                <div class="affiliations">
+                    <span class="author-block"><sup></sup>Skywork</span>
+                </div>
+            </div>
+
+            <div class="publication-links">
+                <a href="https://arxiv.org/abs/2508.11630" class="link-button">
+                    <i class="fas fa-file-pdf"></i>
+                    <span>Paper</span>
+                </a>
+                <a href="https://github.com/SkyworkAI/Skywork-R1V" class="link-button">
+                    <i class="fab fa-github"></i>
+                    <span>Code</span>
+                </a>
+
+                <div class="line-break"></div>
+            
+            </div>
+        </div>
+    </section>
+
+    <!-- Abstract Section -->
+    <section class="abstract-section">
+    <div class="container">
+        <h2 class="abstract-title">Abstract</h2>
+        <div class="abstract-content">
+        <p>
+            Despite recent advances in multimodal agentic systems, most approaches treat image manipulation and web search as isolated skills, rely on expensive reinforcement learning, and lack planning grounded in real tool-execution traces. These models often fall into one of two camps: (1) <em>reasoning-centric</em> systems (e.g., o1 or earlier Skywork-R1V variants) that perform deep but static “brain-in-a-vat” inference without real-world interaction, or (2) <em>agentic RL</em> frameworks that act in the world but struggle with sustained, reflective planning.
+        </p>
+        <p>
+            We present <strong>Skywork-R1V4</strong>, an multimodal agentic model that unifies these dichotomies. R1V4 integrates <em>multimodal planning</em>, <em>active image manipulation</em> (“thinking with images”), <em>deep multimodal search</em>, and—critically—<em>interleaved reasoning</em> that dynamically alternates between visual operations and external knowledge retrieval. Trained solely via supervised fine-tuning on fewer than 30K high-quality, planning-execution-consistent trajectories—and validated through step-wise consistency filtering—R1V4 achieves state-of-the-art results: <strong>66.1</strong> on <span class="benchmark">MMSearch</span> and <strong>67.2</strong> on <span class="benchmark">FVQA</span>, outperforming <span class="model">Gemini 2.5 Pro</span> on 8 of 11 metrics. Remarkably, this was accomplished in under 12 hours on 64 A800 GPUs at low cost—<em>without any reinforcement learning</em>.
+        </p>
+        </div>
+    </div>
+    </section>
+
+    <!-- Showcase Header -->
+    <header>
+        <div class="section-header">
+            <h1>Showcase of Examples</h1>
+            <p class="subtitle">See how Skywork R1V4-Lite performs visual reasoning in real-world scenarios</p>
+        </div>
+    </header>
+
+    <div class="showcase-container">
+
+        <div class="video-carousel">
+            <div class="carousel-controls">
+                <span id="video-title"></span>
+                <div class="navigation">
+                    <button id="prev-btn" aria-label="Previous video">&lt;</button>
+                    <span id="video-counter"></span>
+                    <button id="next-btn" aria-label="Next video">&gt;</button>
+                </div>
+            </div>
+            <div id="video-player-container">
+                <video id="main-video-player" controls playsinline></video>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Benchmark Results Section -->
+    <header>
+        <div class="section-header">
+            <h1>Benchmark Results</h1>
+        </div>
+    </header>
+    <section class="figure-section">
+        <div class="container">
+            <div class="figure-block">
+                <div class="figure-content">
+                    <img src="./static/images/experiments/main_exp.png" alt="Main Results">
+                    <p class="figure-caption">
+                        <strong>Skywork-R1V4-lite demonstrates exceptional proficiency in code-based image manipulation, text and image search, and web browsing, achieving performance on high-resolution perception benchmarks that rivals or surpasses larger-scale and specialized models.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Citation Section -->
+    <section class="citation-section">
+        <div class="container">
+            <h2 class="citation-title">Citation</h2>
+            <div class="citation-content">
+                <pre><code>@article{skywork,
+}</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- External JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    
+</body>
+</html>
