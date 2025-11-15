@@ -6,163 +6,1238 @@
     <title>Skywork-R1V4: Toward Agentic Multimodal Intelligence through Interleaved Thinking with Images and DeepResearch</title>
     
     <!-- External CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Change font -->
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
-   
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="static/css/main.css">
-    <!-- Custom script -->
-    <script src="static/js/flexible-case-renderer.js"></script>
-    <script src="static/js/main.js"></script>
-    <script src="static/js/video-players.js"></script>
-
-    <!-- Favicon -->
-    <link rel="icon" href="./static/images/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --blue-500: #3b82f6;
+            --blue-600: #2563eb;
+            --blue-700: #1d4ed8;
+            --indigo-500: #6366f1;
+            --indigo-600: #4f46e5;
+            --indigo-700: #4338ca;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-80: #1f2937;
+            --gray-900: #111827;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: var(--gray-900);
+            background: linear-gradient(to bottom, var(--gray-50), var(--white));
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+        
+        /* Navigation Styles */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--gray-200);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 4rem;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .logo {
+            width: 2.5rem;
+            height: 2.5rem;
+            background: var(--blue-600);
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+        
+        .logo-text {
+            font-weight: bold;
+            font-size: 1.25rem;
+            background: linear-gradient(to right, var(--blue-600), var(--indigo-700));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .nav-link {
+            color: var(--gray-700);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .nav-link:hover {
+            color: var(--blue-600);
+        }
+        
+        .github-btn {
+            background: linear-gradient(to right, var(--blue-600), var(--indigo-700));
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: opacity 0.2s;
+        }
+        
+        .github-btn:hover {
+            opacity: 0.9;
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            padding: 5rem 0 4rem;
+            overflow: hidden;
+            background: linear-gradient(to bottom right, var(--blue-50), var(--indigo-50));
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 33%;
+            height: 33%;
+            background: var(--blue-200);
+            border-radius: 9999px;
+            opacity: 0.2;
+            filter: blur(48px);
+            z-index: -1;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 25%;
+            height: 25%;
+            background: var(--indigo-300);
+            border-radius: 9999px;
+            opacity: 0.2;
+            filter: blur(48px);
+            z-index: -1;
+        }
+        
+        .hero-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .hero-logo {
+            width: 4rem;
+            height: 4rem;
+            background: var(--blue-600);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        .title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+        
+        @media (min-width: 768px) {
+            .title {
+                font-size: 3.25rem;
+            }
+        }
+        
+        .authors {
+            display: inline-block;
+            background: var(--gray-100);
+            border-radius: 9999px;
+            padding: 0.25rem 1rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+        }
+        
+        .links-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.25rem;
+            margin-bottom: 2.5rem;
+        }
+        
+        .link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.75rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        
+        .link-btn.primary {
+            background: white;
+            border: 1px solid var(--gray-300);
+            color: var(--gray-800);
+        }
+        
+        .link-btn.primary:hover {
+            background: var(--gray-50);
+        }
+        
+        .link-btn.secondary {
+            background: var(--gray-900);
+            color: white;
+        }
+        
+        .link-btn.secondary:hover {
+            background: #111827;
+        }
+        
+        .link-btn.tertiary {
+            background: linear-gradient(to right, var(--blue-500), var(--indigo-600));
+            color: white;
+        }
+        
+        .link-btn.tertiary:hover {
+            opacity: 0.9;
+        }
+        
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--blue-50);
+            color: var(--blue-800);
+            padding: 0.5rem 1.25rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin: 0 auto;
+        }
+        
+        .status-dot {
+            width: 0.75rem;
+            height: 0.75rem;
+            background: var(--blue-500);
+            border-radius: 50%;
+        }
+        
+        /* Abstract Section */
+        .section {
+            padding: 4rem 0;
+        }
+        
+        .section-title-container {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .divider {
+            height: 0.25rem;
+            width: 4rem;
+            background: linear-gradient(to right, var(--blue-500), var(--indigo-600));
+            margin: 0 auto;
+            border-radius: 9999px;
+        }
+        
+        .content-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .abstract-text {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--gray-700);
+        }
+        
+        .text-italic {
+            font-style: italic;
+            color: var(--blue-700);
+        }
+        
+        .text-bold {
+            font-weight: bold;
+            color: var(--blue-700);
+        }
+        
+        .highlight {
+            font-weight: bold;
+            background: linear-gradient(to right, var(--blue-600), var(--indigo-700));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .tag {
+            font-family: monospace;
+            background: var(--blue-50);
+            color: var(--blue-800);
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.9rem;
+        }
+        
+        .tag-model {
+            background: var(--gray-800);
+            color: #34d399;
+        }
+        
+        /* Showcase Section */
+        .showcase {
+            background: linear-gradient(to bottom, var(--indigo-50), var(--white));
+        }
+        
+        .showcase-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Individual Video Demo Blocks */
+        .video-demo-block {
+            margin-bottom: 4rem;
+        }
+        
+        .video-demo-block:last-child {
+            margin-bottom: 0;
+        }
+        
+        .video-container {
+            background: white;
+            border-radius: 1.5rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            overflow: hidden;
+            border: 1px solid var(--gray-200);
+            padding: 0;
+        }
+        
+        .video-header {
+            background: linear-gradient(to right, var(--blue-500), var(--indigo-600));
+            padding: 1rem 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            color: white;
+        }
+        
+        .video-title {
+            font-weight: bold;
+            font-size: 1.125rem;
+        }
+        
+        .video-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .nav-btn {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            color: white;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .video-counter {
+            font-family: monospace;
+        }
+        
+        .video-player {
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .video-player video {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .video-description {
+            color: var(--gray-600);
+            font-size: 0.95rem;
+            margin-top: 1rem;
+            line-height: 1.6;
+            text-align: center;
+        }
+        
+        /* Benchmarks Section */
+        .benchmark-card {
+            background: linear-gradient(to bottom right, var(--blue-50), var(--indigo-50));
+            border-radius: 1.5rem;
+            padding: 3rem;
+            border: 1px solid var(--blue-100);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 3rem;
+        }
+        
+        .benchmark-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2.5rem;
+            gap: 1rem;
+        }
+        
+        .benchmark-title {
+            font-size: 1.75rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .benchmark-subtitle {
+            color: var(--gray-600);
+            font-size: 1.125rem;
+        }
+        
+        .badge {
+            background: linear-gradient(to right, var(--blue-500), var(--indigo-600));
+            color: white;
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 0.25rem 1rem;
+            border-radius: 9999px;
+            display: inline-block;
+        }
+        
+        /* Ensure metrics stay on one line */
+        .metrics-container {
+            overflow-x: auto;
+            padding: 0 1rem;
+            margin-bottom: 2.5rem;
+        }
+        
+        .metrics-grid {
+            display: flex;
+            flex-wrap: nowrap; /* Prevent wrapping */
+            gap: 2rem;
+            min-width: fit-content; /* Ensure content doesn't shrink */
+            justify-content: center;
+        }
+        
+        .metric-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.75rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--gray-100);
+            min-width: 220px; /* Ensure consistent width */
+            flex: 0 0 auto; /* Prevent flex shrinking */
+        }
+        
+        .metric-value {
+            font-size: 2.75rem;
+            font-weight: bold;
+            background: linear-gradient(to right, var(--blue-600), var(--indigo-700));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.75rem;
+        }
+        
+        .metric-label {
+            color: var(--gray-700);
+            font-weight: 500;
+            font-size: 1.125rem;
+        }
+        
+        .benchmark-image-container {
+            margin: 3rem 0;
+            text-align: center;
+        }
+        
+        .benchmark-image {
+            width: 100%;
+            max-width: 1000px;
+            height: auto;
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--gray-200);
+        }
+        
+        .capabilities {
+            margin-top: 3rem;
+        }
+        
+        .capability-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .capability-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        
+        .capability-item {
+            display: flex;
+            gap: 1.25rem;
+        }
+        
+        .capability-number {
+            flex-shrink: 0;
+            width: 1.5rem;
+            height: 1.5rem;
+            background: var(--blue-100);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--blue-700);
+            font-weight: bold;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+        
+        .capability-content h4 {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            font-size: 1.125rem;
+        }
+        
+        .capability-content p {
+            color: var(--gray-600);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        /* Citation Section */
+        .citation-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .citation-card {
+            background: white;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border: 1px solid var(--gray-200);
+        }
+        
+        .citation-header {
+            background: var(--gray-50);
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--gray-200);
+        }
+        
+        .citation-title {
+            font-weight: 500;
+            color: var(--gray-700);
+        }
+        
+        .copy-btn {
+            background: none;
+            border: none;
+            color: var(--blue-600);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        
+        .copy-btn:hover {
+            color: var(--blue-800);
+        }
+        
+        .citation-content {
+            padding: 1.5rem;
+        }
+        
+        .citation-code {
+            background: var(--gray-900);
+            color: #34d399;
+            padding: 1.75rem;
+            border-radius: 1rem;
+            overflow-x: auto;
+            font-family: monospace;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .repo-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(to right, var(--blue-600), var(--indigo-700));
+            color: white;
+            padding: 0.875rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            text-decoration: none;
+            margin-top: 2.5rem;
+            transition: opacity 0.2s;
+        }
+        
+        .repo-btn:hover {
+            opacity: 0.9;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--gray-900);
+            color: var(--gray-300);
+            padding: 2.5rem 0;
+        }
+        
+        .footer-content {
+            text-align: center;
+        }
+        
+        .footer-logo {
+            width: 2.25rem;
+            height: 2.25rem;
+            background: var(--blue-600);
+            border-radius: 0.5rem;
+            margin: 0 auto 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .copyright {
+            color: var(--gray-400);
+            margin-bottom: 1.25rem;
+            font-size: 1.125rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .footer-link {
+            color: var(--gray-400);
+            text-decoration: none;
+            transition: color 0.2s;
+            font-size: 1.125rem;
+        }
+        
+        .footer-link:hover {
+            color: white;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .container {
+                padding: 0 2rem;
+            }
+            
+            .nav-container, .hero-content {
+                padding: 0 2rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+            
+            .nav-container, .hero-content {
+                padding: 0 1.5rem;
+            }
+            
+            .showcase-container {
+                max-width: 800px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+            
+            .nav-container, .hero-content {
+                padding: 0 1.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .title {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .section-title {
+                font-size: 1.75rem;
+            }
+            
+            .benchmark-card {
+                padding: 1.5rem;
+            }
+            
+            .metrics-grid {
+                flex-wrap: wrap; /* Allow wrapping on mobile */
+                justify-content: center;
+            }
+            
+            .metric-card {
+                min-width: 180px;
+            }
+            
+            .video-description {
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .nav-container, .hero-content {
+                padding: 0 1rem;
+            }
+            
+            .showcase-container {
+                max-width: 100%;
+            }
+            
+            .video-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.75rem;
+            }
+            
+            .video-controls {
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            .capability-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .metrics-grid {
+                gap: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Author Section -->
-    <section class="common-section">
-        <div class="common-container">
-            <div class="logo-title">
-                <img src="./static/images/logo.png" class="logo-img">
-                <h1 class="publication-title">Skywork-R1V4: Toward Agentic Multimodal Intelligence <br>through Interleaved Thinking with Images and DeepResearch</h1>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo-container">
+                <div class="logo">S</div>
+                <span class="logo-text">Skywork</span>
             </div>
-        
+            <div class="nav-links">
+                <a href="#abstract" class="nav-link">Abstract</a>
+                <a href="#showcase" class="nav-link">Showcase</a>
+                <a href="#benchmarks" class="nav-link">Benchmarks</a>
+                <a href="#citation" class="nav-link">Citation</a>
+            </div>
+            <a href="https://github.com/SkyworkAI/Skywork-R1V" class="github-btn">
+                <i class="fab fa-github"></i>
+                <span>GitHub</span>
+            </a>
+        </div>
+    </nav>
 
-            <div class="authors-section">
-                <!-- <div>
-                    <span class="author-block">Yi-Fan Zhang<sup>2,♠</sup>,</span>
-                    <span class="author-block">Xingyu Lu<sup>4</sup>,</span>
-                    <span class="author-block">Shukang Yin<sup>5</sup>,</span>
-                    <span class="author-block">Chaoyou Fu<sup>3,†</sup>,</span>
-                    <br>
-                    <span class="author-block">Wei Chen<sup>1</sup>,</span>
-                    <span class="author-block">Xiao Hu<sup>4</sup>,</span>
-                    <span class="author-block">Bin Wen<sup>1,†</sup>,</span>
-                    <span class="author-block">Kaiyu Jiang<sup>1</sup>,</span>
-                    <span class="author-block">Changyi Liu<sup>1</sup>,</span>
-                    <span class="author-block">Tianke Zhang<sup>1</sup>,</span>
-                    <br>
-                    <span class="author-block">Haonan Fan<sup>1</sup>,</span>
-                    <span class="author-block">Kaibing Chen<sup>1</sup>,</span>
-                    <span class="author-block">Jiankang Chen<sup>1</sup>,</span>
-                    <span class="author-block">Haojie Ding<sup>1</sup>,</span>
-                    <span class="author-block">Kaiyu Tang<sup>1</sup>,</span>
-                    <br>
-                    <span class="author-block">Zhang Zhang<sup>2,†</sup>,</span>
-                    <span class="author-block">Liang Wang<sup>2</sup>,</span>
-                    <span class="author-block">Fan Yang<sup>1</sup>,</span>
-                    <span class="author-block">Tingting Gao<sup>1</sup>,</span>
-                    <span class="author-block">Guorui Zhou<sup>1</sup></span>
-                </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-logo">S</div>
+                <h1 class="title">Skywork-R1V4</h1>
                 
-                <div class="author-notes">
-                    <span class="author-block"><sup>♠</sup>Project Leader</span>
-                    <span class="author-block"><sup>†</sup>Corresponding Author</span>
-                </div> -->
+                <div class="authors">Skywork AI Research Team</div>
 
-                <div class="affiliations">
-                    <span class="author-block"><sup></sup>Skywork</span>
+                <div class="links-container">
+                    <a href="https://arxiv.org/abs/2508.11630" class="link-btn primary">
+                        <i class="fas fa-file-pdf"></i>
+                        <span>Paper</span>
+                    </a>
+                    <a href="https://github.com/SkyworkAI/Skywork-R1V" class="link-btn secondary">
+                        <i class="fab fa-github"></i>
+                        <span>Code & Models</span>
+                    </a>
+                    <a href="#showcase" class="link-btn tertiary">
+                        <i class="fas fa-play-circle"></i>
+                        <span>Demo</span>
+                    </a>
                 </div>
-            </div>
 
-            <div class="publication-links">
-                <a href="https://arxiv.org/abs/2508.11630" class="link-button">
-                    <i class="fas fa-file-pdf"></i>
-                    <span>Paper</span>
-                </a>
-                <a href="https://github.com/SkyworkAI/Skywork-R1V" class="link-button">
-                    <i class="fab fa-github"></i>
-                    <span>Code</span>
-                </a>
-
-                <div class="line-break"></div>
-            
+                <div class="status-badge">
+                    <span class="status-dot"></span>
+                    <span>Toward Agentic Multimodal Intelligence through Interleaved Thinking with Images and DeepResearch</span>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Abstract Section -->
-    <section class="abstract-section">
-    <div class="container">
-        <h2 class="abstract-title">Abstract</h2>
-        <div class="abstract-content">
-        <p>
-            Despite recent advances in multimodal agentic systems, most approaches treat image manipulation and web search as isolated skills, rely on expensive reinforcement learning, and lack planning grounded in real tool-execution traces. These models often fall into one of two camps: (1) <em>reasoning-centric</em> systems (e.g., o1 or earlier Skywork-R1V variants) that perform deep but static “brain-in-a-vat” inference without real-world interaction, or (2) <em>agentic RL</em> frameworks that act in the world but struggle with sustained, reflective planning.
-        </p>
-        <p>
-            We present <strong>Skywork-R1V4</strong>, an multimodal agentic model that unifies these dichotomies. R1V4 integrates <em>multimodal planning</em>, <em>active image manipulation</em> (“thinking with images”), <em>deep multimodal search</em>, and—critically—<em>interleaved reasoning</em> that dynamically alternates between visual operations and external knowledge retrieval. Trained solely via supervised fine-tuning on fewer than 30K high-quality, planning-execution-consistent trajectories—and validated through step-wise consistency filtering—R1V4 achieves state-of-the-art results: <strong>66.1</strong> on <span class="benchmark">MMSearch</span> and <strong>67.2</strong> on <span class="benchmark">FVQA</span>, outperforming <span class="model">Gemini 2.5 Pro</span> on 8 of 11 metrics. Remarkably, this was accomplished in under 12 hours on 64 A800 GPUs at low cost—<em>without any reinforcement learning</em>.
-        </p>
+    <section id="abstract" class="section">
+        <div class="container">
+            <div class="section-title-container">
+                <h2 class="section-title">Abstract</h2>
+                <div class="divider"></div>
+            </div>
+            
+            <div class="content-container">
+                <p class="abstract-text">
+                    Despite recent advances in multimodal agentic systems, most approaches treat image manipulation and web search as isolated skills, rely on expensive reinforcement learning, and lack planning grounded in real tool-execution traces. These models often fall into one of two camps: (1) <span class="text-italic">reasoning-centric</span> systems (e.g., o1 or earlier Skywork-R1V variants) that perform deep but static "brain-in-a-vat" inference without real-world interaction, or (2) <span class="text-italic">agentic RL</span> frameworks that act in the world but struggle with sustained, reflective planning.
+                </p>
+                <p class="abstract-text" style="margin-top: 1.5rem;">
+                    We present <span class="text-bold">Skywork-R1V4</span>, an multimodal agentic model that unifies these dichotomies. R1V4 integrates <span class="text-italic">multimodal planning</span>, <span class="text-italic">active image manipulation</span> ("thinking with images"), <span class="text-italic">deep multimodal search</span>, and—critically—<span class="text-italic">interleaved reasoning</span> that dynamically alternates between visual operations and external knowledge retrieval. Trained solely via supervised fine-tuning on fewer than 30K high-quality, planning-execution-consistent trajectories—and validated through step-wise consistency filtering—R1V4 achieves state-of-the-art results: <span class="highlight">66.1</span> on <span class="tag">MMSearch</span>, <span class="highlight">38.4</span> on <span class="tag">BrowseComp-VL</span>, <span class="highlight">88.0</span> on <span class="tag">V Star</span> and <span class="highlight">71.4</span> on <span class="tag">MME-RealWorld</span>, outperforming <span class="tag tag-model">Gemini 2.5 Flash</span>. Remarkably, this was accomplished in under 12 hours on 64 A800 GPUs at low cost—<span class="text-italic">without any reinforcement learning</span>.
+                </p>
+            </div>
         </div>
-    </div>
     </section>
 
-    <!-- Showcase Header -->
-    <header>
-        <div class="section-header">
-            <h1>Showcase of Examples</h1>
-            <p class="subtitle">See how Skywork R1V4-Lite performs visual reasoning in real-world scenarios</p>
-        </div>
-    </header>
+    <!-- Showcase Section -->
+    <section id="showcase" class="section showcase">
+        <div class="container">
+            <div class="section-title-container">
+                <h2 class="section-title">Showcase of Examples</h2>
+                <p style="font-size: 1.25rem; color: var(--gray-600); max-width: 600px; margin: 1rem auto 0;">
+                    See how Skywork R1V4-Lite performs visual reasoning in real-world scenarios
+                </p>
+                <div class="divider" style="width: 5rem; margin-top: 1rem;"></div>
+            </div>
 
-    <div class="showcase-container">
+            <div class="showcase-container">
+                <!-- Video Demo Block 1 -->
+                <div class="video-demo-block">
+                    <div class="video-container">
+                        <div class="video-header">
+                            <h3 class="video-title" id="video-title-1">All-in-One Reasoning</h3>
+                            <div class="video-controls">
+                                <button id="prev-btn-1" class="nav-btn" aria-label="Previous video">&lt;</button>
+                                <span class="video-counter" id="video-counter-1">1/2</span>
+                                <button id="next-btn-1" class="nav-btn" aria-label="Next video">&gt;</button>
+                            </div>
+                        </div>
+                        <div class="video-player">
+                            <video id="main-video-player-1" controls playsinline class="w-full h-auto rounded-xl">
+                                <source src="static/videos/1.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                    <p class="video-description">When faced with limited perspectives or insufficient information, the model automatically performs operations such as cropping, zooming, rotating, and region localization to construct a transparent and traceable "visual action chain.</p>
+                </div>
 
-        <div class="video-carousel">
-            <div class="carousel-controls">
-                <span id="video-title"></span>
-                <div class="navigation">
-                    <button id="prev-btn" aria-label="Previous video">&lt;</button>
-                    <span id="video-counter"></span>
-                    <button id="next-btn" aria-label="Next video">&gt;</button>
+                <!-- Video Demo Block 2 -->
+                <div class="video-demo-block">
+                    <div class="video-container">
+                        <div class="video-header">
+                            <h3 class="video-title" id="video-title-2">Super-class Image Understanding</h3>
+                            <div class="video-controls">
+                                <button id="prev-btn-2" class="nav-btn" aria-label="Previous video">&lt;</button>
+                                <span class="video-counter" id="video-counter-2">1/2</span>
+                                <button id="next-btn-2" class="nav-btn" aria-label="Next video">&gt;</button>
+                            </div>
+                        </div>
+                        <div class="video-player">
+                            <video id="main-video-player-2" controls playsinline class="w-full h-auto rounded-xl">
+                                <source src="static/videos/2.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                    <p class="video-description">When tackling complex and challenging problems, R1V4-Lite demonstrates exceptional multi-turn reasoning and information synthesis capabilities. It proactively initiates multiple rounds of search and verification, extracts and aggregates key information from diverse sources, and ultimately arrives at reliable conclusions.</p>
+                </div>
+
+                <!-- Video Demo Block 3 -->
+                <div class="video-demo-block">
+                    <div class="video-container">
+                        <div class="video-header">
+                            <h3 class="video-title" id="video-title-3">Small & Fast Inference</h3>
+                            <div class="video-controls">
+                                <button id="prev-btn-3" class="nav-btn" aria-label="Previous video">&lt;</button>
+                                <span class="video-counter" id="video-counter-3">1/2</span>
+                                <button id="next-btn-3" class="nav-btn" aria-label="Next video">&gt;</button>
+                            </div>
+                        </div>
+                        <div class="video-player">
+                            <video id="main-video-player-3" controls playsinline class="w-full h-auto rounded-xl">
+                                <source src="static/videos/3.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                    <p class="video-description">The model transitions from merely "passively viewing images" to proactively manipulating them in complex scenes. It explores, verifies, refines, and integrates information based on visual cues, achieving a true cycle of "Observing, Thinking, and Acting.</p>
+                </div>
+                <!-- Video Demo Block 4 -->
+                <div class="video-demo-block">
+                    <div class="video-container">
+                        <div class="video-header">
+                            <h3 class="video-title" id="video-title-4">Planning</h3>
+                            <div class="video-controls">
+                                <button id="prev-btn-4" class="nav-btn" aria-label="Previous video">&lt;</button>
+                                <span class="video-counter" id="video-counter-4">1/2</span>
+                                <button id="next-btn-4" class="nav-btn" aria-label="Next video">&gt;</button>
+                            </div>
+                        </div>
+                        <div class="video-player">
+                            <video id="main-video-player-4" controls playsinline class="w-full h-auto rounded-xl">
+                                <source src="static/videos/4.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                    <p class="video-description">R1V4-Planner-Lite enables proactive multi-modal agentic planning. Starting from a single image, the Planner can automatically construct an executable multi-turn task chain.</p>
                 </div>
             </div>
-            <div id="video-player-container">
-                <video id="main-video-player" controls playsinline></video>
-            </div>
         </div>
-    </div>
+    </section>
 
-
-    <!-- Benchmark Results Section -->
-    <header>
-        <div class="section-header">
-            <h1>Benchmark Results</h1>
-        </div>
-    </header>
-    <section class="figure-section">
+    <!-- Benchmarks Section -->
+    <section id="benchmarks" class="section">
         <div class="container">
-            <div class="figure-block">
-                <div class="figure-content">
-                    <img src="./static/images/experiments/main_exp.png" alt="Main Results">
-                    <p class="figure-caption">
-                        <strong>Skywork-R1V4-lite demonstrates exceptional proficiency in code-based image manipulation, text and image search, and web browsing, achieving performance on high-resolution perception benchmarks that rivals or surpasses larger-scale and specialized models.
-                    </p>
+            <div class="section-title-container">
+                <h2 class="section-title">Benchmark Results</h2>
+                <div class="divider" style="width: 5rem;"></div>
+            </div>
+
+            <div class="content-container">
+                <div class="benchmark-card">
+                    <div class="benchmark-header">
+                        <div>
+                            <h3 class="benchmark-title">Skywork-R1V4 Performance</h3>
+                            <p class="benchmark-subtitle">Exceptional proficiency across multiple multimodal tasks</p>
+                        </div>
+                        <span class="badge">State of the Art Results</span>
+                    </div>
+
+                    <!-- Ensure metrics stay on one line -->
+                    <div class="metrics-container">
+                        <div class="metrics-grid">
+                            <div class="metric-card">
+                                <div class="metric-value">66.1</div>
+                                <div class="metric-label">MMSearch</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-value">38.4</div>
+                                <div class="metric-label">BrowseComp-VL</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-value">88.0</div>
+                                <div class="metric-label">V*</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-value">71.4</div>
+                                <div class="metric-label">MME-RealWorld</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Added benchmark results image -->
+                    <div class="benchmark-image-container">
+                        <img src="static/images/teaser.png" alt="Benchmark Results Comparison" class="benchmark-image">
+                    </div>
+
+                    <div class="capabilities">
+                        <h3 class="capability-title">Key Capabilities</h3>
+                        <div class="capability-list">
+                            <div class="capability-item">
+                                <div class="capability-number">1</div>
+                                <div class="capability-content">
+                                    <h4>All-in-One Intelligence</h4>
+                                    <p>Integrated intelligence (Image operations × Task planning × Deep research); Capable of rapid image analysis, lightweight planning, and deep reasoning.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="capability-item">
+                                <div class="capability-number">2</div>
+                                <div class="capability-content">
+                                    <h4>Super-class Image Understanding</h4>
+                                    <p>Advanced image understanding through image operations (Crop / Zoom / Rotate) integrated with deep reasoning systems.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="capability-item">
+                                <div class="capability-number">3</div>
+                                <div class="capability-content">
+                                    <h4>Small & Fast</h4>
+                                    <p>Ultra-compact model size with ultra-fast inference; A new benchmark for efficient deployment with high performance.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="capability-item">
+                                <div class="capability-number">4</div>
+                                <div class="capability-content">
+                                    <h4>Cost-Effective</h4>
+                                    <p>Industry-leading cost advantages and inference efficiency, making advanced multimodal AI accessible to more users.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Citation Section -->
-    <section class="citation-section">
+    <section id="citation" class="section" style="background: linear-gradient(to bottom right, var(--indigo-50), var(--blue-100));">
         <div class="container">
-            <h2 class="citation-title">Citation</h2>
-            <div class="citation-content">
-                <pre><code>@article{skywork,
-}</code></pre>
+            <div class="section-title-container">
+                <h2 class="section-title">Citation</h2>
+                <div class="divider"></div>
+            </div>
+            
+            <div class="citation-container">
+                <div class="citation-card">
+                    <div class="citation-header">
+                        <span class="citation-title">BibTeX Citation</span>
+                        <button class="copy-btn" id="copy-citation">
+                            <i class="fas fa-copy"></i>
+                            <span>Copy</span>
+                        </button>
+                    </div>
+                    <div class="citation-content">
+                        <pre class="citation-code">@article{skywork2025r1v,
+title = {Skywork R1V: Pioneering Multimodal Reasoning with Chain-of-Thought},
+author = {Yi Peng, Chris, Xiaokun Wang, Yichen Wei, Jiangbo Pei, Weijie Qiu, Ai Jian, Yunzhuo Hao, Jiachun Pan, Tianyidan Xie, Li Ge, Rongxian Zhuang, Xuchen Song, Yang Liu, Yahui Zhou},
+year = {2025},
+journal = {https://github.com/SkyworkAI/Skywork-R1V/blob/main/report/Skywork_R1V.pdf},
+url = {https://huggingface.co/Skywork/Skywork-R1V-38B}
+}</pre>
+                    </div>
+                </div>
+                
+                <div class="text-center" style="margin-top: 2rem;">
+                    <a href="https://github.com/SkyworkAI/Skywork-R1V" class="repo-btn">
+                        <i class="fab fa-github"></i>
+                        <span>Access Code Repository</span>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- External JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
-    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">S</div>
+                <p class="copyright">© 2025 Skywork AI. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="https://arxiv.org/abs/2508.11630" class="footer-link">Paper</a>
+                    <a href="https://github.com/SkyworkAI/Skywork-R1V" class="footer-link">GitHub</a>
+                    <a href="#showcase" class="footer-link">Demos</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Video carousel functionality for each block
+        const videoSets = [
+            {
+                videos: [
+                    { title: "Image Cropping, Rotation, and Auxiliary Line Generation Demo 1", src: "static/videos/小人.mp4" },
+                    { title: "Image Cropping, Rotation, and Auxiliary Line Generation Demo 2", src: "static/videos/未命名.mp4" },
+                    { title: "Image Cropping, Rotation, and Auxiliary Line Generation Demo 3", src: "static/videos/保质期.mp4" },
+                    { title: "Image Cropping, Rotation, and Auxiliary Line Generation Demo 4", src: "static/videos/旋转.mp4" },
+                    { title: "Image Cropping, Rotation, and Auxiliary Line Generation Demo 5", src: "static/videos/iShot_2025-11-14_12.00.44 (1).mp4" }
+                ],
+                index: 0,
+                titleEl: document.getElementById('video-title-1'),
+                counterEl: document.getElementById('video-counter-1'),
+                playerEl: document.getElementById('main-video-player-1'),
+                prevBtn: document.getElementById('prev-btn-1'),
+                nextBtn: document.getElementById('next-btn-1')
+            },
+            {
+                videos: [
+                    { title: "Multi-Modal Deep Research Demo 1", src: "static/videos/录屏2025-11-10 21.11.44.mov" },
+                    { title: "Multi-Modal Deep Research Demo 2", src: "static/videos/drs_new2.mp4" },
+                    { title: "Multi-Modal Deep Research Demo 2", src: "static/videos/纯文本_faker.mp4" }
+                ],
+                index: 0,
+                titleEl: document.getElementById('video-title-2'),
+                counterEl: document.getElementById('video-counter-2'),
+                playerEl: document.getElementById('main-video-player-2'),
+                prevBtn: document.getElementById('prev-btn-2'),
+                nextBtn: document.getElementById('next-btn-2')
+            },
+            {
+                videos: [
+                    { title: "Interleaved Image Manipulation and Deep Research Demo 1", src: "static/videos/病理放大.mp4" },
+                    { title: "Interleaved Image Manipulation and Deep Research Demo 2", src: "static/videos/电商.mp4" },
+                    { title: "Interleaved Image Manipulation and Deep Research Demo 3", src: "static/videos/1.mp4" }
+                ],
+                index: 0,
+                titleEl: document.getElementById('video-title-3'),
+                counterEl: document.getElementById('video-counter-3'),
+                playerEl: document.getElementById('main-video-player-3'),
+                prevBtn: document.getElementById('prev-btn-3'),
+                nextBtn: document.getElementById('next-btn-3')
+            },
+            {
+                videos: [
+                    { title: "Proactive Multi-modal Agentic Planning Demo 1", src: "static/videos/多模态plan.mp4" },
+                    { title: "Proactive Multi-modal Agentic Planning Demo 2", src: "static/videos/plan_纯文本.mp4" },
+                ],
+                index: 0,
+                titleEl: document.getElementById('video-title-4'),
+                counterEl: document.getElementById('video-counter-4'),
+                playerEl: document.getElementById('main-video-player-4'),
+                prevBtn: document.getElementById('prev-btn-4'),
+                nextBtn: document.getElementById('next-btn-4')
+            }
+        ];
+        
+        function updateVideo(set) {
+            set.titleEl.textContent = set.videos[set.index].title;
+            set.counterEl.textContent = `${set.index + 1}/${set.videos.length}`;
+            set.playerEl.src = set.videos[set.index].src;
+            set.playerEl.load();
+        }
+        
+        // Initialize event listeners for each video set
+        videoSets.forEach(set => {
+            set.nextBtn.addEventListener('click', () => {
+                set.index = (set.index + 1) % set.videos.length;
+                updateVideo(set);
+            });
+            
+            set.prevBtn.addEventListener('click', () => {
+                set.index = (set.index - 1 + set.videos.length) % set.videos.length;
+                updateVideo(set);
+            });
+        });
+        
+        // Initialize with first videos
+        document.addEventListener('DOMContentLoaded', () => {
+            videoSets.forEach(set => {
+                updateVideo(set);
+            });
+        });
+        
+        // Copy citation functionality
+        document.getElementById('copy-citation').addEventListener('click', () => {
+            const citationText = `@article{skywork2025r1v,
+title = {Skywork R1V: Pioneering Multimodal Reasoning with Chain-of-Thought},
+author = {Yi Peng, Chris, Xiaokun Wang, Yichen Wei, Jiangbo Pei, Weijie Qiu, Ai Jian, Yunzhuo Hao, Jiachun Pan, Tianyidan Xie, Li Ge, Rongxian Zhuang, Xuchen Song, Yang Liu, Yahui Zhou},
+year = {2025},
+journal = {https://github.com/SkyworkAI/Skywork-R1V/blob/main/report/Skywork_R1V.pdf},
+url = {https://huggingface.co/Skywork/Skywork-R1V-38B}
+}`;
+            
+            navigator.clipboard.writeText(citationText).then(() => {
+                alert('Citation copied to clipboard!');
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
+
